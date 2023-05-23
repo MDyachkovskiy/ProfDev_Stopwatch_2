@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProfDev_Stopwatch</string>
+    <string name="stopwatch_default_value">00:00:000</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_stop">Stop</string>
+
+</resources>
