@@ -1,6 +1,7 @@
-package gb.com.profdev_stopwatch.model
+package gb.com.profdev_stopwatch.appState
 
-import gb.com.profdev_stopwatch.appState.StopwatchState
+import gb.com.profdev_stopwatch.model.ElapsedTimeCalculator
+import gb.com.profdev_stopwatch.model.TimestampProvider
 
 class StopwatchStateCalculator(
     private val timestampProvider: TimestampProvider,

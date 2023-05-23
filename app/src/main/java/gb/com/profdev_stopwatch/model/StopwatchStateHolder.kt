@@ -1,6 +1,8 @@
 package gb.com.profdev_stopwatch.model
 
 import gb.com.profdev_stopwatch.appState.StopwatchState
+import gb.com.profdev_stopwatch.appState.StopwatchStateCalculator
+import gb.com.profdev_stopwatch.repository.TimestampMillisecondsFormatter
 
 class StopwatchStateHolder(
     private val stopwatchStateCalculator: StopwatchStateCalculator,

@@ -1,4 +1,4 @@
-package gb.com.profdev_stopwatch.model
+package gb.com.profdev_stopwatch.repository
 
 class TimestampMillisecondsFormatter() {
 
