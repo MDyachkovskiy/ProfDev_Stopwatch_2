@@ -2,59 +2,40 @@ package gb.com.profdev_stopwatch.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import gb.com.profdev_stopwatch.R
-import gb.com.profdev_stopwatch.model.ElapsedTimeCalculator
-import gb.com.profdev_stopwatch.appState.StopwatchStateCalculator
-import gb.com.profdev_stopwatch.model.StopwatchStateHolder
-import gb.com.profdev_stopwatch.model.SystemTimeStampProvider
-import gb.com.profdev_stopwatch.repository.TimestampMillisecondsFormatter
-import gb.com.profdev_stopwatch.repository.StopwatchUseCase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
+import gb.com.profdev_stopwatch.databinding.ActivityMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: StopwatchViewModel
+    private val model: StopwatchViewModel by viewModel()
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        viewModel = StopwatchViewModel(
-            StopwatchUseCase(
-                StopwatchStateHolder(
-                    StopwatchStateCalculator(
-                        SystemTimeStampProvider(),
-                        ElapsedTimeCalculator(SystemTimeStampProvider())
-                    ),
-                    ElapsedTimeCalculator(SystemTimeStampProvider()),
-                    TimestampMillisecondsFormatter()
-                )
-            ),
-            CoroutineScope(
-                Dispatchers.Main + SupervisorJob()
-            )
-        )
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val textView = findViewById<TextView>(R.id.text_time)
+        val textView = binding.textTime
 
-        viewModel.ticker.observe(this) {
+        model.ticker.observe(this) {
             textView.text = it
         }
 
-        findViewById<Button>(R.id.button_start).setOnClickListener {
-            viewModel.start()
-        }
+        with(binding){
+            buttonStart.setOnClickListener {
+                model.start()
+            }
 
-        findViewById<Button>(R.id.button_pause).setOnClickListener {
-            viewModel.pause()
-        }
+            buttonPause.setOnClickListener {
+                model.pause()
+            }
 
-        findViewById<Button>(R.id.button_stop).setOnClickListener {
-            viewModel.stop()
+            buttonStop.setOnClickListener {
+                model.stop()
+            }
         }
     }
 }
