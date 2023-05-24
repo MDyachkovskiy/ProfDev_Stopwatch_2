@@ -8,9 +8,6 @@ import gb.com.profdev_stopwatch.model.TimestampProvider
 import gb.com.profdev_stopwatch.repository.StopwatchUseCase
 import gb.com.profdev_stopwatch.repository.TimestampMillisecondsFormatter
 import gb.com.profdev_stopwatch.view.StopwatchViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
 import org.koin.dsl.module
 
 val appModule = module {
@@ -18,7 +15,7 @@ val appModule = module {
     single {TimestampMillisecondsFormatter()}
     single {StopwatchStateCalculator(get(), get())}
     single {ElapsedTimeCalculator(get())}
-    single {StopwatchStateHolder(get(), get(), get())}
-    single {StopwatchUseCase(get())}
-    factory {StopwatchViewModel(get(), CoroutineScope(Dispatchers.Main + SupervisorJob()))}
+    factory {StopwatchStateHolder(get(), get(), get())}
+    factory {StopwatchUseCase(get())}
+    factory {StopwatchViewModel(get(), get())}
 }

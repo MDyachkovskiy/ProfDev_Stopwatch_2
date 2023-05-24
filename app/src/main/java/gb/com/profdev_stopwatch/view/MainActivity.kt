@@ -19,22 +19,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val textView = binding.textTime
+        val textViewSecond = binding.textTimeSecond
 
-        model.ticker.observe(this) {
+        model.tickerFirst.observe(this) {
             textView.text = it
+        }
+
+        model.tickerSecond.observe(this){
+            textViewSecond.text = it
         }
 
         with(binding){
             buttonStart.setOnClickListener {
-                model.start()
+                model.startFirst()
+            }
+
+            buttonStartSecond.setOnClickListener {
+                model.startSecond()
             }
 
             buttonPause.setOnClickListener {
-                model.pause()
+                model.pauseFirst()
+            }
+            buttonPauseSecond.setOnClickListener {
+                model.pauseSecond()
             }
 
             buttonStop.setOnClickListener {
-                model.stop()
+                model.stopFirst()
+            }
+
+            buttonStopSecond.setOnClickListener {
+                model.stopSecond()
             }
         }
     }

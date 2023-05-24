@@ -21,5 +21,4 @@ class StopwatchUseCase(
     fun getStringTimeRepresentation(): String {
         return stopwatchStateHolder.getStringTimeRepresentation()
     }
-
 }
