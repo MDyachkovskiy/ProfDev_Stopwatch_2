@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import gb.com.profdev_stopwatch.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-
 class MainActivity : AppCompatActivity() {
 
     private val model: StopwatchViewModel by viewModel()
