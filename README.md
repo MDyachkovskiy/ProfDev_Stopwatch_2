@@ -6,7 +6,11 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.ibb.co.com/tM6wkWX/IMG-20230922-122736.jpg" alt="project-screenshot" width="200" height="400/">
+<img src="https://gdurl.com/Qg4j" alt="project-screenshot" width="200" height="400/">
+
+<h2>Application Demo Video:</h2>
+
+<p>Watch a demo of the application here: <a href="https://gdurl.com/ihnO" target="_blank">Stopwatch App Demo Video</a></p>
   
 <h2>💻 Built with</h2>
 
